@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _panelGameOver;
+    [SerializeField] private ButtonUI _buttonUI; 
+
+ /*   private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent(out Bullet bullet))
+        {
+            GameOver(); 
+        }
+    }
+ */
+    public void GameOver()
+    {
+        _buttonUI.OnPanel(_panelGameOver);
+        _buttonUI.TimeGame(0f); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

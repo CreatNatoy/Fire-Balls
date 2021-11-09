@@ -9,7 +9,8 @@ public class Tank : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private Bullet _bulletTemplate;
     [SerializeField] private float _delayBetweemShoots;
-    [SerializeField] private float _recoilDistance; 
+    [SerializeField] private float _recoilDistance;
+    [SerializeField] private SpawnerBull _spawnerBull; 
 
     private float _timeAfterShoot;
 
@@ -21,7 +22,8 @@ public class Tank : MonoBehaviour
         {
             if(_timeAfterShoot > _delayBetweemShoots)
             {
-                Shoot();
+                _spawnerBull.ActivateBullet(); 
+             //   Shoot(); 
                 transform.DOMoveZ(transform.position.z - _recoilDistance, _delayBetweemShoots/2).SetLoops(2,LoopType.Yoyo);
                 _timeAfterShoot = 0;
             }

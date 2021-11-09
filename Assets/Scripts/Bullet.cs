@@ -25,19 +25,22 @@ public class Bullet : MonoBehaviour
         if (other.TryGetComponent(out Block block))
         {
             block.Break();
-            Destroy(gameObject);
+        }
+        if(other.TryGetComponent(out Finish finish))
+        {
+            finish.FinishGame(); 
         }
         if (other.TryGetComponent(out Obstacle obstacle))
         {
-            Bounce();
+            obstacle.GameOver();
         }
+        Die(); 
 
     }
-        private void Bounce()
+
+        private void Die()
         {
-            _moveDirection = Vector3.back + Vector3.up;
-            Rigidbody rigidbody = GetComponent<Rigidbody>();
-            rigidbody.isKinematic = false;
-            rigidbody.AddExplosionForce(_bounceForse, transform.position + new Vector3(0, -1, 1), _bounceRadius); 
+        gameObject.SetActive(false); 
         }
+
 }
