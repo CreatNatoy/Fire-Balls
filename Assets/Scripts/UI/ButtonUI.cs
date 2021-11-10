@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonUI : MonoBehaviour
-{
-    
+{   
     public void OnPanel(GameObject panel)
     {
         panel.SetActive(true);
