@@ -23,7 +23,7 @@ public class ButtonUI : MonoBehaviour
 
     public void LoadScene(int level)
     {
-        if (level == 0)
+        if (level == -1)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         else
             SceneManager.LoadScene(level);
@@ -33,5 +33,10 @@ public class ButtonUI : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit(); 
+    }
+
+    public void DeleteKeys()
+    {
+        PlayerPrefs.DeleteAll(); 
     }
 }
